@@ -1,0 +1,54 @@
+----------- Terms x Entities -----------
+24 x 7 matrix
+1 1 0 0 0 0 1
+1 0 0 0 1 0 0
+0 2 0 0 0 0 0
+0 1 1 0 0 0 0
+0 1 0 0 0 0 3
+0 1 0 0 0 0 3
+0 1 0 0 0 0 1
+0 4 0 0 0 1 0
+0 2 0 0 0 0 2
+0 1 0 0 0 0 0
+0 0 1 0 0 0 0
+0 0 1 0 0 0 0
+0 0 1 0 0 0 0
+0 0 1 0 0 0 0
+0 0 0 1 0 0 0
+0 0 0 1 0 0 0
+0 0 0 1 0 0 0
+0 0 0 0 2 0 0
+0 0 0 0 1 0 0
+0 0 0 0 0 0 2
+0 0 0 0 0 0 4
+0 0 0 0 0 0 2
+0 0 0 0 0 0 2
+0 0 0 0 0 0 2
+
+----------- Terms Frequencies -----------
+class: 3.0
+empty: 2.0
+println: 2.0
+nada: 2.0
+public: 4.0
+privat: 4.0
+gener: 2.0
+interna: 5.0
+atributo: 4.0
+coisa: 1.0
+enumeracao: 1.0
+essa: 1.0
+num: 1.0
+faz: 1.0
+red: 1.0
+green: 1.0
+blue: 1.0
+method: 2.0
+body: 1.0
+constant: 2.0
+parametro: 4.0
+metodo: 2.0
+variavel: 2.0
+local: 2.0
+---------------- Summary ----------------
+Entities:7	Distinct_Terms:24	Total_Terms:51
