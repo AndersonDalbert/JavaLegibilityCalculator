@@ -1,5 +1,6 @@
 package sres;
 import java.io.File;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
@@ -7,36 +8,32 @@ public class Main {
 	public static void main (String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
-		System.out.print("Select the mode (D for directory F for file)");
-		final String option = sc.next().toLowerCase();
+		System.out.println("Select the path for the directory which files are going to be measured");
 		final String path = sc.next();	
 		sc.close();
 		
-		final File file = new File(path);
-		
+		final File directory = new File(path);
 		try {
-			if ( option.equals("d") )  calculateFromDirectory(file);
-			else if ( option.equals("f") ) 	calculateFromFile(file);
-		} 
-		catch (Exception e) {
-			System.out.println(e.getMessage());
+			calculateSRES(directory);
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 
-	private static void calculateFromFile(File file) 
+	private static double calculateSRES(File directory) throws IOException
 	{
-		if ( !file.exists() || !file.isFile() )
-			throw new IllegalArgumentException("Invalid file path");
-		double calculatedSRES = FileSRESMeasurement.measure(file);
-		System.out.println(calculatedSRES);
+		checkInconsistentDirectory(directory);
+		SRESMeasurer measurer = new SRESMeasurer(directory.getPath());
+		return measurer.measure();
 	}
 
-	private static void calculateFromDirectory(File file) throws Exception 
+	private static void checkInconsistentDirectory(File directory) throws IOException 
 	{
-		if ( !file.exists() || !file.isDirectory() )
+		if ( !directory.exists() || !directory.isDirectory() )
 			throw new IllegalArgumentException("Invalid directory path");
-		double calculatedSRES = DirectorySRESMeasurement.measure(file);
-		System.out.println(calculatedSRES);
+		File[] directoryListing = directory.listFiles();	
+		if (directoryListing == null) 
+			throw new IOException("Directory is empty");
 	}
 	
 }
